@@ -1,41 +1,41 @@
 const Vendor = require('../models/Vendor');
 const crypto = require('crypto');
 
-exports.createVendor = async (req, res) => {
+exports.updateVendor = async (req, res) => {
   try {
-    const { businessType, shopName, keywords, googleReviewUrl } = req.body;
-
-    if (!businessType || !shopName || !keywords || !googleReviewUrl) {
-      return res.status(400).json({ success: false, message: 'Missing required fields' });
+    const { businessType, shopName, keywords, googleReviewUrl, qrTemplate, qrColor } = req.body;
+    
+    // Vendor ID is available from auth middleware req.vendor
+    const vendor = await Vendor.findById(req.vendor.id);
+    
+    if (!vendor) {
+      return res.status(404).json({ success: false, message: 'Vendor not found' });
     }
 
-    // Generate unique short ID, e.g., VND-8F3K2
-    const shortId = crypto.randomBytes(3).toString('hex').toUpperCase();
-    const vendorId = `VND-${shortId}`;
+    if (businessType !== undefined) vendor.businessType = businessType;
+    if (shopName !== undefined) vendor.shopName = shopName;
+    if (keywords !== undefined) vendor.keywords = Array.isArray(keywords) ? keywords : keywords.split(',').map(k => k.trim());
+    if (googleReviewUrl !== undefined) vendor.googleReviewUrl = googleReviewUrl;
+    if (qrTemplate !== undefined) vendor.qrTemplate = qrTemplate;
+    if (qrColor !== undefined) vendor.qrColor = qrColor;
 
-    const clientUrl = req.headers.origin || process.env.CLIENT_URL || 'http://localhost:5173';
-    const customerUrl = `${clientUrl}/review/${vendorId}`;
+    // Generate customerUrl if it doesn't exist
+    if (!vendor.customerUrl) {
+      const clientUrl = req.headers.origin || process.env.CLIENT_URL || 'http://localhost:5173';
+      vendor.customerUrl = `${clientUrl}/review/${vendor.vendorId}`;
+    }
 
-    const newVendor = new Vendor({
-      vendorId,
-      businessType,
-      shopName,
-      keywords: Array.isArray(keywords) ? keywords : keywords.split(',').map(k => k.trim()),
-      googleReviewUrl,
-      customerUrl,
-      status: 'active'
-    });
+    await vendor.save();
 
-    await newVendor.save();
-
-    res.status(201).json({
+    res.status(200).json({
       success: true,
-      vendorId,
-      customerUrl
+      vendorId: vendor.vendorId,
+      customerUrl: vendor.customerUrl,
+      vendor
     });
   } catch (error) {
-    console.error('Error creating vendor:', error);
-    res.status(500).json({ success: false, message: 'Failed to create vendor' });
+    console.error('Error updating vendor:', error);
+    res.status(500).json({ success: false, message: 'Failed to update vendor business details' });
   }
 };
 
