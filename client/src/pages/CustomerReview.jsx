@@ -23,7 +23,7 @@ export default function CustomerReview() {
     setError(null);
     try {
       // 1. Fetch vendor data for shopName and googleReviewUrl
-      const vendorRes = await fetch(`${import.meta.env.VITE_API_URL}/api/vendors/${vendorId}`);
+      const vendorRes = await fetch(`/api/vendors/${vendorId}`);
       const vendorJson = await vendorRes.json();
 
       if (!vendorJson.success) {
@@ -44,7 +44,7 @@ export default function CustomerReview() {
 
   const generateReviewText = async () => {
     try {
-      const reviewRes = await fetch(`${import.meta.env.VITE_API_URL}/api/reviews/generate`, {
+      const reviewRes = await fetch(`/api/reviews/generate`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ vendorId })

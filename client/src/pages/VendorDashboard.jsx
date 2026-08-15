@@ -68,7 +68,7 @@ export default function VendorDashboard() {
     setLoading(true);
 
     try {
-      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/vendors`, {
+      const response = await fetch(`/api/vendors`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
