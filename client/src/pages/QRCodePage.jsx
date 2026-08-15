@@ -16,6 +16,8 @@ export default function QRCodePage() {
   
   const qrRef = useRef(null);
 
+  const customerUrl = vendorData ? `${window.location.origin}/review/${vendorData.vendorId}` : '';
+
   useEffect(() => {
     const fetchVendorData = async () => {
       try {
@@ -39,7 +41,7 @@ export default function QRCodePage() {
 
   const handleCopyUrl = async () => {
     try {
-      await navigator.clipboard.writeText(vendorData?.customerUrl);
+      await navigator.clipboard.writeText(customerUrl);
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     } catch (err) {
@@ -76,7 +78,7 @@ export default function QRCodePage() {
     );
   }
 
-  if (!vendorData || !vendorData.customerUrl) {
+  if (!vendorData || !vendorData.vendorId) {
     return (
       <div style={{ padding: '2rem', textAlign: 'center' }}>
         <h2 style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>No QR Code Found</h2>
@@ -107,9 +109,9 @@ export default function QRCodePage() {
           boxShadow: 'inset 0 2px 10px rgba(0,0,0,0.5)'
         }}>
           {qrTemplate === 'standard' ? (
-            <StandardTemplate customerUrl={vendorData.customerUrl} qrColor={qrColor} qrRef={qrRef} />
+            <StandardTemplate customerUrl={customerUrl} qrColor={qrColor} qrRef={qrRef} />
           ) : (
-            <GoogleReviewTemplate customerUrl={vendorData.customerUrl} qrColor={qrColor} qrRef={qrRef} />
+            <GoogleReviewTemplate customerUrl={customerUrl} qrColor={qrColor} qrRef={qrRef} />
           )}
         </div>
 
@@ -128,7 +130,7 @@ export default function QRCodePage() {
               color: '#a5b4fc',
               fontSize: '0.875rem'
             }}>
-              {vendorData.customerUrl}
+              {customerUrl}
             </div>
           </div>
 
@@ -143,7 +145,7 @@ export default function QRCodePage() {
               {copied ? 'Copied to Clipboard' : 'Copy Customer URL'}
             </button>
 
-            <button onClick={() => window.open(vendorData.customerUrl, '_blank')} className="btn btn-secondary" style={{ padding: '1rem', background: 'transparent' }}>
+            <button onClick={() => window.open(customerUrl, '_blank')} className="btn btn-secondary" style={{ padding: '1rem', background: 'transparent' }}>
               <ExternalLink size={18} style={{ marginRight: '0.5rem' }} />
               Test Customer Page
             </button>
