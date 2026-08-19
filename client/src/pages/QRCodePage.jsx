@@ -25,7 +25,8 @@ export default function QRCodePage() {
         });
         const data = await res.json();
         if (data.success && data.vendor) {
-          setVendorData(data.vendor);
+          const dynamicUrl = `${window.location.origin}/review/${data.vendor.vendorId}`;
+          setVendorData({ ...data.vendor, customerUrl: dynamicUrl });
         }
       } catch (err) {
         console.error(err);

@@ -27,7 +27,9 @@ export default function QRCustomizer() {
         if (data.success && data.vendor) {
           setQrColor(data.vendor.qrColor || '#000000');
           setQrTemplate(data.vendor.qrTemplate || 'standard');
-          setCustomerUrl(data.vendor.customerUrl || '');
+          
+          const dynamicUrl = `${window.location.origin}/review/${data.vendor.vendorId}`;
+          setCustomerUrl(dynamicUrl);
         }
       } catch (err) {
         console.error(err);
