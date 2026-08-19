@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "himat-review-project",
+  "private_key_id": "661eb11a0721bab8dda35025d48c0c9c5be97f84",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQDVgfy6Q2KIHds7\n+B2o/XDq52piMir2hqQq/TV4CEkjXvyQqYSj0BEQgi+KgiPQAvlKWlm0wwPynBhG\nBkfJmlnAewk1rKRiYntFCsIVLnj6MKIjUAc0r9+4lMonrOticExJ1U6YN+f1id9C\nSFNIYKzCf5dARBriPHf6znh8+9ML1VGwUTiCCWsiMIT1Fzn2Dc0FbbUNJQRAiIew\nM03T7yZlhpJEMoLeZJ6o4tMxykPqjgk09tfQrUEPACUCmP1v36dB1Nu1GV7o15F+\ng5bbSCzFfK6+rogG6wmh/ir9HP9jqasti8p5h57h94micY6rgtM/s2zFppLVPurY\nFEKkaXwxAgMBAAECgf8CeQp1k5I4QV21dqjrhbxAGvW4yZbXE3gipgwdm57MmCfr\nvVKPy3aQF9MwA6ZUnU3NhbGRFcB+6bjeP7buvEKYGBxjMh3316mYZGTyGduHuFz1\nLQYwBWOvYih/eKjqNx2g1uMiySbQ2OLS1i8gv8qxFLdOTaSWjB9NYKi6WTVuTaI2\nVQTfp0UDCpJCHA9ZOP9WyqqhW5oKQBWWnF1VKBjvRHufDsYoQ+t1zZJTqxHweqx5\nTuQHsykhtmlVZ63veia6l7WOtZpnu5uraKhbgaORAS6NuZ4VcWoacoJDoPvz11Qo\nDVwaSjPu97Jcm8wsJ78zRMnW7Ji0J5SaC/sIKckCgYEA6ypZASjc7B6qM+Cbh3zm\nOdY39AFgdPNQ5i02U/HIfe/xhB6UTAGTazASxWbunlEZYaM0X09TwzVAz3HTQ6Qk\n/5+5hhK2lORslV/Og0VXfLNsOF6pBGn5r5h0Dt7cmlUSmMhkvsbY6Ef0AMuVFShD\nA4IGq2Lzj1DYsPn1k9MMXLkCgYEA6GxvQaTxgZSAbZzSMY4VXKUk3qnT7SqBEyp6\nWdsjod/J75jUk63RBhoHl4TvxcBfO8/C786S1/GlKQAGplRxHWYx8sScldD1tYtV\nDCMwdfpyLSNq3fClhmMuZxtt3WK+rnLjKX7o8ePMQofVMjCNJE8b0KVioGdhHUIU\nHr4KDzkCgYEAjVBXR8EccK9ErAPusg418s9ttC0Xn2+PT6IfoXYLetIzGaeeicXw\nplqvDPx7q5skW23NTPDIbueTWJUX1O/QY+PBgnXATdyt+10lJfEHT6IqB/2qJ0Lf\njctZAo6dlghFMpZJI/Mt6PdEAy5TGfGlw3fhNiAyKA73B/JMxlXuedECgYBBeJIa\nfrkdFFTdC6jWFr0DvO1W36X4D9oOKRAQEb/G0IBUwstW0kaoHlr3HpZgMSFietLh\ntGH+/G3Wz9APuIeojWoShbnKJfOg8R/C7IKxKRxShMCMxkYKRhQDLWHUVAV8pJZC\n0SITSWT3dMXkfnKzwKkILB5NKvHbSQrb4hJ5WQKBgQDXN/8Sznjjz+a95gjHQClF\nKwBmQePIMhBn95SS0Ku1qgJn0uhwHpu2JZailfszSYN5265b51Rg3YXzv87vkG7w\nSR0u8eNHo6JJs6USYkpX1Nqo27MhGMti6FMxu4ALbe0sa2fqLXTot57qjdPQxFq3\ngYBmmkObsyGYLpHycVyQfg==\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-fbsvc@himat-review-project.iam.gserviceaccount.com",
+  "client_id": "101996158817318857729",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-fbsvc%40himat-review-project.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

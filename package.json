@@ -1,0 +1,11 @@
+{
+  "name": "ratexpeed-root",
+  "private": true,
+  "workspaces": [
+    "client",
+    "server"
+  ],
+  "overrides": {
+    "jose": "4.15.9"
+  }
+}
